@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.idea/
+l2_profile/
+*.csv
+*.png
