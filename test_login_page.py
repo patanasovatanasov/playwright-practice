@@ -1,6 +1,6 @@
 import pytest
 from playwright.sync_api import Page, expect
-from pages.login_page import LoginPage, URL
+from pages.login_page import LoginPage
 
 
 def test_correct_login_page(page):
@@ -8,25 +8,12 @@ def test_correct_login_page(page):
     login_page.open()
     login_page.login("tomsmith", "SuperSecretPassword!")
     expect(login_page.flash_login_msg).to_contain_text("You logged into a secure area")
-    expect(page).to_have_url(URL+"secure")
-
-def test_incorrect_login_name(page):
+    expect(page).to_have_url(login_page.URL+"secure")
+@pytest.mark.parametrize("username, password, msg", [
+    ("tOmsmith", "SuperSecretPassword!", "Your username is invalid"), ("tomsmith", "SuperSecretPassword", "Your password is invalid"), ("", "", "Your username is invalid")])
+def test_wrong_logins(page, username, password, msg):
     login_page = LoginPage(page)
     login_page.open()
-    login_page.login("tOmsmith", "SuperSecretPassword!")
-    expect(login_page.flash_login_msg).to_contain_text("Your username")
-    expect(page).to_have_url(URL+"login")
-
-def test_correct_login_password(page):
-    login_page = LoginPage(page)
-    login_page.open()
-    login_page.login("tomsmith", "SuperSecretPassword")
-    expect(login_page.flash_login_msg).to_contain_text("Your password")
-    expect(page).to_have_url(URL+"login")
-
-def test_empty_login_password(page):
-    login_page = LoginPage(page)
-    login_page.open()
-    login_page.login("", "")
-    expect(login_page.flash_login_msg).to_contain_text("Your username")
-    expect(page).to_have_url(URL+"login")
+    login_page.login(username, password)
+    expect(login_page.flash_login_msg).to_contain_text(msg)
+    expect(page).to_have_url(login_page.URL+"login")

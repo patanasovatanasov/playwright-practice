@@ -1,8 +1,7 @@
 from playwright.sync_api import Page
 
-URL = "https://the-internet.herokuapp.com/"
-
 class LoginPage:
+    URL = "https://the-internet.herokuapp.com/"
     def __init__(self, page: Page):
         self.page = page
         self.username_field = page.get_by_role("textbox", name="username")
@@ -16,4 +15,4 @@ class LoginPage:
         self.button.click()
 
     def open(self):
-        self.page.goto(URL+"login")
+        self.page.goto(self.URL+"login")
