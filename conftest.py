@@ -1,6 +1,7 @@
 import pytest
 from pages.login_page import LoginPage
 from pages.add_remove_page import AddRemovePage
+from pages.secure_page import SecurePage
 
 
 @pytest.fixture
@@ -14,3 +15,8 @@ def add_remove_page(page):
     ar = AddRemovePage(page)
     ar.open()
     return ar
+
+@pytest.fixture
+def secure_page(login_page):
+    login_page.login("tomsmith", "SuperSecretPassword!")
+    yield SecurePage(login_page.page)
