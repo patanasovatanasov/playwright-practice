@@ -1,4 +1,6 @@
 import pytest
+
+from pages.inputs_page import InputPage
 from pages.login_page import LoginPage
 from pages.add_remove_page import AddRemovePage
 from pages.secure_page import SecurePage
@@ -20,3 +22,9 @@ def add_remove_page(page):
 def secure_page(login_page):
     login_page.login("tomsmith", "SuperSecretPassword!")
     yield SecurePage(login_page.page)
+
+@pytest.fixture
+def inputs_page(page):
+    ip = InputPage(page)
+    ip.open(page)
+    return ip
