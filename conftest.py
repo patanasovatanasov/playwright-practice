@@ -1,5 +1,6 @@
 import pytest
 
+from pages.dynamic_controls import DynamicControlsPage
 from pages.inputs_page import InputPage
 from pages.login_page import LoginPage
 from pages.add_remove_page import AddRemovePage
@@ -28,3 +29,9 @@ def inputs_page(page):
     ip = InputPage(page)
     ip.open()
     return ip
+
+@pytest.fixture
+def dynamic_controls_page(page):
+    dc = DynamicControlsPage(page)
+    dc.open()
+    return dc
