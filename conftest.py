@@ -26,5 +26,5 @@ def secure_page(login_page):
 @pytest.fixture
 def inputs_page(page):
     ip = InputPage(page)
-    ip.open(page)
+    ip.open()
     return ip
