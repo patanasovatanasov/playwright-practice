@@ -1,6 +1,6 @@
 from playwright.sync_api import Page
 
-class DynamicControlsPage(Page):
+class DynamicControlsPage:
     def __init__(self, page: Page):
         self.page = page
         self.checkbox = page.get_by_role("checkbox")
@@ -29,8 +29,8 @@ class DynamicControlsPage(Page):
     def check_checkbox(self):
         self.checkbox.check()
 
-    def type_text(self):
-        self.field.type("test-123!")
+    def type_text(self, text):
+        self.field.fill(text)
 
     def open(self):
         self.page.goto("https://the-internet.herokuapp.com/dynamic_controls")
