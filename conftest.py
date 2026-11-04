@@ -5,6 +5,7 @@ from pages.inputs_page import InputPage
 from pages.login_page import LoginPage
 from pages.add_remove_page import AddRemovePage
 from pages.secure_page import SecurePage
+from pages.tables_page import TablesPage
 
 
 @pytest.fixture
@@ -35,3 +36,9 @@ def dynamic_controls_page(page):
     dc = DynamicControlsPage(page)
     dc.open()
     return dc
+
+@pytest.fixture
+def tables_page(page):
+    tp = TablesPage(page)
+    tp.open()
+    return tp

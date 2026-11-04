@@ -25,5 +25,6 @@ def test_active_disabled_field(dynamic_controls_page):
     dynamic_controls_page.type_text("test-123!")
     expect(dynamic_controls_page.field).to_have_value("test-123!")
     dynamic_controls_page.disable_field()
+    expect(dynamic_controls_page.field).to_be_disabled()
     expect(dynamic_controls_page.disabled_msg).to_be_visible()
     expect(dynamic_controls_page.field).to_have_value("test-123!")
