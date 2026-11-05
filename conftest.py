@@ -3,6 +3,7 @@ import pytest
 from pages.dynamic_controls import DynamicControlsPage
 from pages.hovers_page import HoversPage
 from pages.inputs_page import InputPage
+from pages.key_presses_page import KeyPresses
 from pages.login_page import LoginPage
 from pages.add_remove_page import AddRemovePage
 from pages.secure_page import SecurePage
@@ -49,3 +50,9 @@ def hovers_page(page):
     h = HoversPage(page)
     h.open()
     return h
+
+@pytest.fixture
+def key_presses_page(page):
+    kp = KeyPresses(page)
+    kp.open()
+    return kp

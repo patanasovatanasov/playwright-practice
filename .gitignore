@@ -5,3 +5,4 @@ __pycache__/
 l2_profile/
 *.csv
 *.png
+locator_finder.py
