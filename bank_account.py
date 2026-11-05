@@ -1,8 +1,7 @@
 
 class BankAccount:
-    balance = 0
     def __init__(self):
-        balance = self.balance
+        self.balance = 0
 
     def add_money(self, n):
         if n <= 0 :

@@ -35,4 +35,5 @@ def test_two_different_accounts():
     user1 = BankAccount()
     user2 = BankAccount()
     user1.add_money(100)
+    assert user2.balance == 0
     assert user1.balance != user2.balance
