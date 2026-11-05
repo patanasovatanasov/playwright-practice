@@ -5,4 +5,3 @@ with sync_playwright() as playwright:
     page = br.new_page()
     page.goto("https://the-internet.herokuapp.com/hovers")
     page.pause()
-
