@@ -1,6 +1,7 @@
 import pytest
 
 from pages.dynamic_controls import DynamicControlsPage
+from pages.hovers_page import HoversPage
 from pages.inputs_page import InputPage
 from pages.login_page import LoginPage
 from pages.add_remove_page import AddRemovePage
@@ -42,3 +43,9 @@ def tables_page(page):
     tp = TablesPage(page)
     tp.open()
     return tp
+
+@pytest.fixture
+def hovers_page(page):
+    h = HoversPage(page)
+    h.open()
+    return h
