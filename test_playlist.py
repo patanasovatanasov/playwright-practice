@@ -27,3 +27,4 @@ def test_max_3_songs():
     assert rock.count() == 3
     with pytest.raises(ValueError):
         rock.add_song("Песен 4")
+    assert rock.count() == 3
