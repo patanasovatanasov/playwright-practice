@@ -1,11 +1,10 @@
 import pytest
-from _pytest import raises
 
 from playlist import Playlist
 
 def test_adding_songs():
     rock = Playlist("Рок")
-    assert rock.pl == "Рок"
+    assert rock.name == "Рок"
     assert rock.count() == 0
 
 def test_dif_playlists_song_count():
