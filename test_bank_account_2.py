@@ -1,5 +1,4 @@
 import pytest
-from bank_account import BankAccount
 
 def test_acc_balance_0(acc):
     assert acc.balance == 0

@@ -1,5 +1,6 @@
 import pytest
 
+from pages.checkboxes_page import Checkboxes
 from pages.dynamic_controls import DynamicControlsPage
 from pages.hovers_page import HoversPage
 from pages.inputs_page import InputPage
@@ -80,3 +81,9 @@ def acc():
 def acc_100(acc):
     acc.add_money(100)
     return acc
+
+@pytest.fixture
+def checkboxes_page(page):
+    boxes = Checkboxes(page)
+    boxes.open()
+    return boxes
