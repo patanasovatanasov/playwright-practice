@@ -8,6 +8,7 @@ from pages.login_page import LoginPage
 from pages.add_remove_page import AddRemovePage
 from pages.secure_page import SecurePage
 from pages.tables_page import TablesPage
+from playlist import Playlist
 
 
 @pytest.fixture
@@ -56,3 +57,16 @@ def key_presses_page(page):
     kp = KeyPresses(page)
     kp.open()
     return kp
+
+@pytest.fixture
+def rock():
+    pl1 = Playlist("Рок")
+    return pl1
+
+@pytest.fixture
+def full_rock(rock):
+    rock.add_song("song1")
+    rock.add_song("song2")
+    rock.add_song("song3")
+    yield rock
+    #rock.add_song("song4")
