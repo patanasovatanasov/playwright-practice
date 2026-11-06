@@ -8,6 +8,7 @@ from pages.login_page import LoginPage
 from pages.add_remove_page import AddRemovePage
 from pages.secure_page import SecurePage
 from pages.tables_page import TablesPage
+from bank_account import BankAccount
 from playlist import Playlist
 
 
@@ -69,4 +70,13 @@ def full_rock(rock):
     rock.add_song("song2")
     rock.add_song("song3")
     yield rock
-    #rock.add_song("song4")
+
+@pytest.fixture
+def acc():
+    acc1 = BankAccount()
+    return acc1
+
+@pytest.fixture
+def acc_100(acc):
+    acc.add_money(100)
+    return acc
