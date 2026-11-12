@@ -9,3 +9,8 @@ def test_starting_value(dropdown_page):
 def test_select_1(dropdown_page, v):
     dropdown_page.select_options(v)
     expect(dropdown_page.checked_option).to_have_text(f"Option {v}")
+
+def test_select_simultaneously(dropdown_page):
+    dropdown_page.select_options(1)
+    dropdown_page.select_options(2)
+    expect(dropdown_page.checked_option).to_have_text("Option 2")
