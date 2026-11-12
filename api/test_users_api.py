@@ -14,7 +14,6 @@ def test_usr_9999():
     r2 = r.get(URL+'9999')
     assert r2.status_code == 404
     assert r2.json() == {}
-
 def test_address_city():
     r1 = r.get(URL+'1')
     adr = r1.json()['address']

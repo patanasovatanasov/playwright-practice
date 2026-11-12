@@ -1,5 +1,6 @@
 import pytest
 
+from pages.dropdown_page import Dropdown
 from pages.checkboxes_page import Checkboxes
 from pages.dynamic_controls import DynamicControlsPage
 from pages.hovers_page import HoversPage
@@ -87,3 +88,9 @@ def checkboxes_page(page):
     boxes = Checkboxes(page)
     boxes.open()
     return boxes
+
+@pytest.fixture
+def dropdown_page(page):
+    dd = Dropdown(page)
+    dd.open()
+    return dd
