@@ -5,6 +5,7 @@ class Dropdown:
         self.page = page
         self.dropdown = page.locator("#dropdown")
         self.selected_option = self.dropdown.locator("option[selected]")
+        self.checked_option = self.dropdown.locator("option:checked")
 
     def open(self):
         self.page.goto("https://the-internet.herokuapp.com/dropdown")
